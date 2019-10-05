@@ -1,0 +1,31 @@
+body {
+    background: url("bg.jpg") no-repeat center fixed;
+    background-size: cover;
+
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+h1 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+
+ #home {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+
+}
+
+td {
+    padding: 10px;
+}
+
+.form-control mr-sm-2 {
+
+}

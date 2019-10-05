@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <title>Fruit Inventory</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar"  style="background-color: #00FFFF; text-align:center;">
+        <a id="home" href="/fruit">home</a>
+        <div style="display:flex"><img th:src="@{/logo.png}" width="50" height="50" alt="fruit"><h1 style="font-size: 40px">Fruit Inventory</h1></div>
+        <form class="form-inline">
+                <input id="search" class="form-control mr-sm-2" type="search" placeholder="Filter By Name" aria-label="Search" onkeyup="test()" style="font-size:16px;">
+              </form>
+            </nav>
+
+          <div id="addb" style=" margin: 0.5%;">
+        <a class="btn btn-primary btn-lg" href="/fruit/get" role="button" style="font-size:25px;float:right;margin-bottom: 0.5%;">Add</a>
+    </div>
+
+            
+
+        <!-- table -->
+         <div>
+        <table style="font-size: 26px; text-align:center;" class="table table-dark" id="table">
+            <thead>
+                <tr> 
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="tr" th:each="fruit : ${listFruits}">
+                    <td th:text="${fruit.id}">ID</td>
+                    <td th:text="${fruit.company}">Company</td>
+                    <td th:text="${fruit.name}">Name</td>
+                    <td th:text="${fruit.amount}">Amount</td>
+                    <td th:text="${fruit.location}">Location</td> 
+                    <!-- actions -->
+                    <td> <a th:href="@{'/edit/' + ${fruit.id}}" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-pencil"></span> </a> <a onclick="return confirm('Are you sure you want to delete this row?')" th:href="@{'/delete/' + ${fruit.id}}" class="btn btn-lg btn-danger"> <span class="glyphicon glyphicon-remove"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>

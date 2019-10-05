@@ -13,7 +13,7 @@ public class Fruit {
     private Long id;
     private String company;
     private String name;
-    private Integer amount;
+    private Long amount;
     private String location;
 
     public Long getId() {
@@ -40,11 +40,11 @@ public class Fruit {
         this.name = name;
     }
 
-    public Integer getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 

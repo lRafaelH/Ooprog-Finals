@@ -21,7 +21,7 @@ public class FruitController {
         List<Fruit> listfruits = fruitRepository.findAll();
         Fruit fruit = new Fruit();
         model.addAttribute("listFruits", listfruits);
-        model.addAttribute("Attrib", fruit);
+        model.addAttribute("Proper", fruit);
         return "index";
     }
 
@@ -30,18 +30,18 @@ public class FruitController {
         List<Fruit> listfruits = fruitRepository.findAll();
         Fruit fruit = new Fruit();
         model.addAttribute("listFruits", listfruits);
-        model.addAttribute("Attrib", fruit);
+        model.addAttribute("Proper", fruit);
         return "add_fruit";
 
     }
 
-    @PostMapping("/fruit/new")
+    @PostMapping("/fruit/add")
     public String addActionButton(@ModelAttribute("listFruits") Fruit newFruit) {
         fruitRepository.save(newFruit);
         return "redirect:/fruit";
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/update/{id}")
     public ModelAndView updateFruit(@PathVariable(name = "id") long id) {
         ModelAndView mav = new ModelAndView("update_fruit");
         Fruit fruit = fruitRepository.getOne(id);

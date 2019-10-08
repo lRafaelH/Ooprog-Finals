@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigInteger;
 
 @Entity
 public class Fruit {
@@ -13,7 +14,7 @@ public class Fruit {
     private Long id;
     private String company;
     private String name;
-    private Long amount;
+    private BigInteger amount;
     private String location;
 
     public Long getId() {
@@ -40,11 +41,11 @@ public class Fruit {
         this.name = name;
     }
 
-    public Long getAmount() {
+    public BigInteger getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(BigInteger amount) {
         this.amount = amount;
     }
 
